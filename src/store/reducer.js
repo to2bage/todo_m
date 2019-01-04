@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
     switch(action.type) {
         case INIT_TODO_LIST:
-            newState.todolist = [action.data];
+            newState.todolist = action.data;
             return newState;
         case INPUT_VALUE_CHANGE:
             newState.inputValue = action.value;
