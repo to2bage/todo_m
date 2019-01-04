@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { store } from "../store/index.js";
 import { Input, Button, List } from "antd";
 import {
+    get_todo_list,
     get_input_value_change_action,
     get_add_todo_item_action,
     get_delete_todo_item_action
@@ -38,6 +39,11 @@ export default class TodoList extends Component {
     handleItemClick (idx) {
         // console.log(idx);
         store.dispatch(get_delete_todo_item_action(idx));
+    }
+
+    componentDidMount() {
+        const action = get_todo_list();
+        store.dispatch(action);
     }
 
     render () {

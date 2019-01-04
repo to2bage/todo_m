@@ -1,4 +1,5 @@
 import {
+    INIT_TODO_LIST,
     INPUT_VALUE_CHANGE,
     ADD_TODO_ITEM,
     DELETE_TODO_ITEM
@@ -18,6 +19,9 @@ const defaultState = {
 export default (state = defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
     switch(action.type) {
+        case INIT_TODO_LIST:
+            newState.todolist = [action.data];
+            return newState;
         case INPUT_VALUE_CHANGE:
             newState.inputValue = action.value;
             return newState;
